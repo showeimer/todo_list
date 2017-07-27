@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <form action="/" method="post">
+      <input type="text" name="todo" placeholder="Add a todo" />
+      <button>Add todo</button>
+    </form>
+      <ul>
+        {{#todos}}
+        <li><form action="/complete" method="post">
+          <button>Mark as Complete</button>
+          <input type="text" name="completed" value="{{.}}" />
+        </form></li>
+        {{/todos}}
+      </ul>
+
+      <h3>Completed Tasks</h3>
+      <ol>
+        {{#completed}}
+        <li>{{.}}</li>
+        {{/completed}}
+      </ol>
+  </body>
+</html>
